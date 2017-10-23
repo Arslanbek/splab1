@@ -1,0 +1,38 @@
+//Fullname: Arslanbek Tynyshov 
+//Group: 3EN04B
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <getopt.h>
+#include <string.h>
+
+int main(int argc, char* argv[]){
+    int opt = getopt(argc, argv, "s:c:");
+    float n = 0;
+    float sine = 0;
+    float cosine = 0;
+    if(opt == -1){
+	printf("usage: sincos angle\nonly sine: sincos -s angle\nonly cosine: sincos -c angle\n");
+    }
+    else{
+	n = atof(optarg);
+	switch (opt){
+	    case 's':
+		sine = sin(n);
+	        printf("%f\n", sine);
+		break;
+	    case 'c':
+		cosine = cos(n);
+		printf("%f\n", cosine);
+		break;
+	    case 0:
+		sine = sin(n);
+		cosine = cos(n);
+		printf("%f\n%f\n", sine, cosine);
+		break;
+	}
+    }
+
+    return 0;
+}
